@@ -77,10 +77,10 @@ theme: material
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:HalZhan/halzhan.github.io.git
-  branch: master
-  type: baidu_url_submitter
+- type: git
+  repo: 
+    github: git@github.com:HalZhan/halzhan.github.io.git
+- type: baidu_url_submitter
 
 # baidu seo
 baidu_url_submit:
