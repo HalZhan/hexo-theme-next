@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "publish": "hexo clean && hexo g && hexo d"
+    "publish": "hexo clean && hexo g && hexo d",
+    "server": "hexo server --debug"
   },
   "hexo": {
     "version": "3.4.1"
