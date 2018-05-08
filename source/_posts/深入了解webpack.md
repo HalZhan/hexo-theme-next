@@ -147,3 +147,28 @@ class Compiler extends Tapable {
     }
 }
 ```
+
+`Compiler` 继承自 `Tapable`，在其构造方法中，定义了一些事件钩子（`hooks`）、一些变量以及一些方法。这些变量以及方法目前看来还是非常抽象的，所以我们有必要去了解下 `Tapable` 的实现。
+
+[Tapable的Github主页](https://github.com/webpack/tapable) 对 `Tapable` 的介绍如下：
+
+* The tapable packages exposes many Hook classes, which can be used to create hooks for plugins.
+
+实际上，webpack基于事件流机制，它的工作流程就是将各个插件串联起来，而实现这一切的核心就是Tapable，webpack中最核心的负责编译的Compiler和负责创建bundles的Compilation都是Tapable的实例。`Tapable` 向外暴露许多的钩子类，这些类可以很方便地为插件创建事件钩子。 `Tapable` 中定义了如下几种钩子类：
+- SyncHook
+- SyncBailHook
+- SyncWaterfallHook
+- SyncLoopHook
+- AsyncParallelHook
+- AsyncParallelBailHook
+- AsyncSeriesHook
+- AsyncSeriesBailHook
+- AsyncSeriesWaterfallHook
+
+所有钩子类的构造函数都接收一个可选的参数，这个参数是一个由字符串参数组成的数组，如下：
+```js
+const hook = new SyncHook(["arg1", "arg2", "arg3"]);
+```
+
+# 钩子概览
+Tapable的钩子分为两类，同步和异步，其中异步又分为并行和串行：
