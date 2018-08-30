@@ -3,19 +3,20 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hal Zhan
-subtitle: 不拘一格、Geek
-description: 
-author: Hal Zhan(风起云涌Hal)
+title: Hal Zhan's Blog
+subtitle: Geek
+description: Hal Zhan's Personal Technology Blog
+keywords: technology,front-end,framework,node,javascript
+author: Hal Zhan
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://halzhan.cn
-root: /
+root:
 # permalink: :year/:month/:day/:title/
-permalink: :title.html
+permalink: :category/:title/
 permalink_defaults:
 
 # Directory
@@ -39,8 +40,8 @@ post_asset_folder: true
 relative_link: false
 future: true
 highlight:
-  enable: false
-  line_number: false
+  enable: true
+  line_number: true
   auto_detect: false
   tab_replace:
   
@@ -73,19 +74,24 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: material
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-- type: git
-  repo: 
-    github: git@github.com:HalZhan/halzhan.github.io.git
-- type: baidu_url_submitter
+  type: git
+  repo: git@github.com:HalZhan/blog.git
+  branch: gh-pages
+  message:
 
-# baidu seo
-baidu_url_submit:
-  count: 10 # 提交最新的链接数
-  host: halzhan.cn
-  token: 7D5CtTJrn4gDD2XI
-  path: baidu_urls.txt # 文本文档的地址，新链接会保存在此文本文档里
+# Searching
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
